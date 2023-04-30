@@ -15,13 +15,13 @@ For more information, please visit our [**project page**](https://pku-epic.githu
 
 
 ## Overview
-![](imgs/pipe.jpg)
+![](imgs/teaser.jpg)
 In this work, we present a novel dexterous grasping policy learning pipeline, **UniDexGrasp++**. Same to UniDexGrasp, UniDexGrasp++ is trained on 3000+ different object instances with
 random object poses under a table-top setting. It significantly outperforms the previous
 SOTA and achieves **85.4%** and **78.2%** success rates on the train and test set.
 
 ## Pipeline
-![](imgs/teaser.jpg)
+![](imgs/pipe.jpg)
 We propose a novel, object-agnostic method for learning a universal policy for dexterous 
 object grasping from realistic point cloud observations and proprioceptive information 
 under a table-top setting, namely UniDexGrasp++. To address the challenge of learning 
