@@ -73,8 +73,7 @@ pip install -e .
 
 ### 4. Install pointnet2_ops
 ```bash
-git clone git@github.com:erikwijmans/Pointnet2_PyTorch.git && cd Pointnet2_PyTorch/pointnet2_ops_lib/
-python setup.py install
+pip install "git+https://github.com/erikwijmans/Pointnet2_PyTorch.git#egg=pointnet2_ops&subdirectory=pointnet2_ops_lib”
 ```
 ## Dataset
 We use the UniDexGrasp [dataset](https://mirrors.pku.edu.cn/dl-release/UniDexGrasp_CVPR2023/dexgrasp_policy/assets/). Addtionaly please download [datasetv4.1_posedata.npy](https://drive.google.com/file/d/1DajtOFyTPC5YhsO-Fd3Gv17x7eAysI1b/view?usp=share_link) under `assets`. Please unpack them put them under the directory dexgrasp_policy/assets. The full objects and their corresponding scales informations we used are in dexgrasp/cfg/train_set.yaml, dexgrasp/cfg/test_set_seen_cat.yaml, dexgrasp/cfg/test_set_unseen_cat.yaml.
