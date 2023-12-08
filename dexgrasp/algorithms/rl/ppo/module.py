@@ -161,8 +161,10 @@ class ActorCritic(nn.Module):
                 data = {"pc": pc, "state": torch.cat([observations[:, :191], observations[:, 207:236]], dim=1), "mask": mask}
                 pc_feature = self.backbone(data)[0].reshape(-1, 128)
             else:
-                pc = observations[:, 300:].reshape(-1, 1024, 8)
-                pc_feature = self.backbone(pc)[0].reshape(-1, 128)
+                pc = observations[:, 300:300+6144].reshape(-1, 1024, 6)
+                mask = observations[:, 300+6144:].reshape(-1, 1024, 2)
+                pc_with_mask = torch.cat([pc, mask], dim = -1)
+                pc_feature = self.backbone(pc_with_mask)[0].reshape(-1, 128)
             observations = torch.cat([observations[:, :191], observations[:, 207:236], pc_feature], dim=1)
             actions_mean = self.actor(observations)
         elif self.use_pc and self.freeze_backbone:
@@ -173,8 +175,10 @@ class ActorCritic(nn.Module):
                     data = {"pc": pc, "state": torch.cat([observations[:, :191], observations[:, 207:236]], dim=1), "mask": mask}
                     pc_feature = self.backbone(data)[0].reshape(-1, 128)
                 else:
-                    pc = observations[:, 300:].reshape(-1, 1024, 8)
-                    pc_feature = self.backbone(pc)[0].reshape(-1, 128)
+                    pc = observations[:, 300:300+6144].reshape(-1, 1024, 6)
+                    mask = observations[:, 300+6144:].reshape(-1, 1024, 2)
+                    pc_with_mask = torch.cat([pc, mask], dim = -1)
+                    pc_feature = self.backbone(pc_with_mask)[0].reshape(-1, 128)
             observations = torch.cat([observations[:, :191], observations[:, 207:236], pc_feature], dim=1)
             actions_mean = self.actor(observations)
         else:
@@ -205,8 +209,10 @@ class ActorCritic(nn.Module):
                 data = {"pc": pc, "state": torch.cat([observations[:, :191], observations[:, 207:236]], dim=1), "mask": mask}
                 pc_feature = self.backbone(data)[0].reshape(-1, 128)
             else:
-                pc = observations[:, 300:].reshape(-1, 1024, 8)
-                pc_feature = self.backbone(pc)[0].reshape(-1, 128)
+                pc = observations[:, 300:300+6144].reshape(-1, 1024, 6)
+                mask = observations[:, 300+6144:].reshape(-1, 1024, 2)
+                pc_with_mask = torch.cat([pc, mask], dim = -1)
+                pc_feature = self.backbone(pc_with_mask)[0].reshape(-1, 128)
             observations = torch.cat([observations[:, :191], observations[:, 207:236], pc_feature], dim=1)
             actions_mean = self.actor(observations)
         elif self.use_pc and self.freeze_backbone:
@@ -217,8 +223,10 @@ class ActorCritic(nn.Module):
                     data = {"pc": pc, "state": torch.cat([observations[:, :191], observations[:, 207:236]], dim=1), "mask": mask}
                     pc_feature = self.backbone(data)[0].reshape(-1, 128)
                 else:
-                    pc = observations[:, 300:].reshape(-1, 1024, 8)
-                    pc_feature = self.backbone(pc)[0].reshape(-1, 128)
+                    pc = observations[:, 300:300+6144].reshape(-1, 1024, 6)
+                    mask = observations[:, 300+6144:].reshape(-1, 1024, 2)
+                    pc_with_mask = torch.cat([pc, mask], dim = -1)
+                    pc_feature = self.backbone(pc_with_mask)[0].reshape(-1, 128)
             observations = torch.cat([observations[:, :191], observations[:, 207:236], pc_feature], dim=1)
             actions_mean = self.actor(observations)
         else:
@@ -233,8 +241,10 @@ class ActorCritic(nn.Module):
                 data = {"pc": pc, "state": torch.cat([observations[:, :191], observations[:, 207:236]], dim=1), "mask": mask}
                 pc_feature = self.backbone(data)[0].reshape(-1, 128)
             else:
-                pc = observations[:, 300:].reshape(-1, 1024, 8)
-                pc_feature = self.backbone(pc)[0].reshape(-1, 128)
+                pc = observations[:, 300:300+6144].reshape(-1, 1024, 6)
+                mask = observations[:, 300+6144:].reshape(-1, 1024, 2)
+                pc_with_mask = torch.cat([pc, mask], dim = -1)
+                pc_feature = self.backbone(pc_with_mask)[0].reshape(-1, 128)
             observations = torch.cat([observations[:, :191], observations[:, 207:236], pc_feature], dim=1)
             actions_mean = self.actor(observations)
         elif self.use_pc and self.freeze_backbone:
@@ -245,8 +255,10 @@ class ActorCritic(nn.Module):
                     data = {"pc": pc, "state": torch.cat([observations[:, :191], observations[:, 207:236]], dim=1), "mask": mask}
                     pc_feature = self.backbone(data)[0].reshape(-1, 128)
                 else:
-                    pc = observations[:, 300:].reshape(-1, 1024, 8)
-                    pc_feature = self.backbone(pc)[0].reshape(-1, 128)
+                    pc = observations[:, 300:300+6144].reshape(-1, 1024, 6)
+                    mask = observations[:, 300+6144:].reshape(-1, 1024, 2)
+                    pc_with_mask = torch.cat([pc, mask], dim = -1)
+                    pc_feature = self.backbone(pc_with_mask)[0].reshape(-1, 128)
             observations = torch.cat([observations[:, :191], observations[:, 207:236], pc_feature], dim=1)
             actions_mean = self.actor(observations)
         else:
